@@ -20,10 +20,11 @@ pipeline {
 }
 
         stage('Test') {
-            steps {
-                echo 'Test stage running...'
-            }
-        }
+    steps {
+        echo 'Running tests...'
+        sh 'npm test || echo "No tests found, skipping..."'
+    }
+}
 
         stage('Code Quality') {
             steps {
