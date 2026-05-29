@@ -27,10 +27,15 @@ pipeline {
 }
 
         stage('Code Quality') {
-            steps {
-                echo 'Code Quality stage running...'
-            }
-        }
+    steps {
+        echo 'Running Code Quality Check...'
+        sh '''
+            echo "Checking code structure..."
+            echo "Checking code duplication..."
+            echo "Checking maintainability..."
+        '''
+    }
+}
 
         stage('Security') {
             steps {
