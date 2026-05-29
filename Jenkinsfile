@@ -38,10 +38,15 @@ pipeline {
 }
 
         stage('Security') {
-            steps {
-                echo 'Security stage running...'
-            }
-        }
+    steps {
+        echo 'Running Security Scan...'
+        sh '''
+            echo "Checking dependencies for vulnerabilities..."
+            echo "Scanning for known CVEs..."
+            echo "No critical issues found (simulated scan)"
+        '''
+    }
+}
 
         stage('Deploy') {
             steps {
