@@ -5,7 +5,7 @@
   "homepage": "https://snyk.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Snyk/snyk-todo-list-demo-app/"
+    "url": "git+https://github.com/Snyk/snyk-todo-list-demo-app.git"
   },
   "scripts": {
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon ./app.js",
@@ -24,7 +24,7 @@
     "ejs": "1.0.0",
     "ejs-locals": "1.0.2",
     "errorhandler": "1.2.0",
-    "express": "4.12.4",
+    "express": "^4.12.4",
     "express-fileupload": "0.0.5",
     "express-session": "^1.17.2",
     "file-type": "^8.1.0",
@@ -50,8 +50,20 @@
   },
   "devDependencies": {
     "browserify": "^13.1.1",
+    "jest": "^30.4.2",
     "nodemon": "^2.0.7",
-    "snyk": "^1.244.0"
+    "snyk": "^1.244.0",
+    "supertest": "^7.2.2"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Snyk/snyk-todo-list-demo-app/issues"
+  }
 }
