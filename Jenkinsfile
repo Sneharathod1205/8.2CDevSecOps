@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -12,75 +11,51 @@ pipeline {
         }
 
         stage('Build') {
-    steps {
-        echo 'Installing dependencies...'
-        sh 'npm install'
-        echo 'Build completed'
-    }
-}
+            steps {
+                echo 'Installing dependencies...'
+                sh 'npm install'
+            }
+        }
 
         stage('Test') {
-    steps {
-        echo 'Running tests...'
-        sh 'npm test || echo "No tests found, skipping..."'
-    }
-}
+            steps {
+                echo 'Running tests...'
+                sh 'npm test || echo "No tests found"'
+            }
+        }
 
         stage('Code Quality') {
-    steps {
-        echo 'Running Code Quality Check...'
-        sh '''
-            echo "Checking code structure..."
-            echo "Checking code duplication..."
-            echo "Checking maintainability..."
-        '''
-    }
-}
+            steps {
+                echo 'Code Quality Check...'
+            }
+        }
 
         stage('Security') {
-    steps {
-        echo 'Running Security Scan...'
-        sh '''
-            echo "Checking dependencies for vulnerabilities..."
-            echo "Scanning for known CVEs..."
-            echo "No critical issues found (simulated scan)"
-        '''
-    }
-}
+            steps {
+                echo 'Security Scan...'
+            }
+        }
 
         stage('Deploy') {
-    steps {
-        echo 'Deploying application (simulated deployment - Docker not required)...'
-        sh '''
-            echo "Building package for deployment..."
-            echo "Application deployed to staging environment"
-        '''
-    }
-}
+            steps {
+                echo 'Deploying application (simulated)...'
+            }
+        }
 
         stage('Release') {
-    steps {
-        echo 'Creating release version...'
-        sh '''
-            echo "Tagging build as v1.0.0"
-            echo "Release deployed to production environment"
-        '''
-    }
-}
+            steps {
+                echo 'Creating release v1.0.0'
+            }
+        }
 
         stage('Monitoring') {
-    steps {
-        echo 'Monitoring application...'
-        sh '''
-            echo "Checking system health..."
-            echo "CPU usage normal"
-            echo "Memory usage normal"
-            echo "No alerts triggered"
-        '''
+            steps {
+                echo 'Monitoring system health...'
+            }
+        }
     }
-}
 
-            post {
+    post {
         success {
             echo 'Pipeline completed successfully!'
         }
@@ -89,5 +64,3 @@ pipeline {
         }
     }
 }
-
-    
