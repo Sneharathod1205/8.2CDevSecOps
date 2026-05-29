@@ -12,10 +12,12 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                echo 'Build stage running...'
-            }
-        }
+    steps {
+        echo 'Installing dependencies...'
+        sh 'npm install'
+        echo 'Build completed'
+    }
+}
 
         stage('Test') {
             steps {
