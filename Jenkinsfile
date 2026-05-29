@@ -49,10 +49,14 @@ pipeline {
 }
 
         stage('Deploy') {
-            steps {
-                echo 'Deploy stage running...'
-            }
-        }
+    steps {
+        echo 'Deploying application using Docker...'
+        sh '''
+            docker build -t devsecops-app .
+            docker run -d -p 3000:3000 devsecops-app || true
+        '''
+    }
+}
 
         stage('Release') {
             steps {
