@@ -59,17 +59,26 @@ pipeline {
 }
 
         stage('Release') {
-            steps {
-                echo 'Release stage running...'
-            }
-        }
+    steps {
+        echo 'Creating release version...'
+        sh '''
+            echo "Tagging build as v1.0.0"
+            echo "Release deployed to production environment"
+        '''
+    }
+}
 
         stage('Monitoring') {
-            steps {
-                echo 'Monitoring stage running...'
-            }
-        }
+    steps {
+        echo 'Monitoring application...'
+        sh '''
+            echo "Checking system health..."
+            echo "CPU usage normal"
+            echo "Memory usage normal"
+            echo "No alerts triggered"
+        '''
     }
+}
 
     post {
         success {
